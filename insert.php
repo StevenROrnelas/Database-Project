@@ -120,7 +120,7 @@ if (isset($_POST['submit']))
             $orderslocationsOrderID = mysqli_real_escape_string ($link, $_POST['orderslocationsOrderID']);
             $orderslocationsLocationID = mysqli_real_escape_string ($link, $_POST['orderslocationsLocationID']);
             $orderslocationsDestination = mysqli_real_escape_string ($link, $_POST['orderslocationsDestination']);
-            $orderslocationsDestination = stripslashes($orderslocationsDestinaton);
+            $orderslocationsDestination = stripslashes($orderslocationsDestination);
 
             $values = "($orderslocationsOrderID, $orderslocationsLocationID, '$orderslocationsDestination')";
             break;
@@ -172,6 +172,7 @@ if (isset($_POST['submit']))
             alert('$message');
         </script>";
     }
+    header("Location: insertdata.php");
 }
 ?>
 
@@ -181,12 +182,27 @@ if (isset($_POST['submit']))
     <meta content="utf-8" http-equiv="encoding">
     <title>Insert data </title>
 <style>
-    .inv{
+    .inv
+    {
         display: none;
-}
+    }
+    h3
+    {
+        text-align: center;
+    }
+    .mytextbox
+    {
+        width: 25%;
+        text-align: center;
+    }
+    .mydetails
+    {
+        text-align: center;
+    }
 </style>
 </head>
 <body>
+<div class="mydetails">
 <form action="insert.php" method = "post">
 <select id="selection" name="table" ><option></option>
     <option value="Employee">Insert into Employee table</option>
@@ -202,6 +218,7 @@ if (isset($_POST['submit']))
     <option value="SupplierItems">Insert into SupplierItems table </option>
 </select>
     </form>
+    </div>
     <script>
 
     document
@@ -258,8 +275,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="Employee">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -280,8 +300,11 @@ if (isset($_POST['submit']))
         <td><input type="text" name="customerEmail"></td>
     </tr>
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="Customer">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -302,8 +325,12 @@ if (isset($_POST['submit']))
         <td><input type="text" name="itemCurrentPrice"></td>
     </tr>
 </table>
+
+<div class="mydetails">
 <input type="hidden" name="table" value="Item">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -327,8 +354,12 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+
+<div class="mydetails">
 <input type="hidden" name="table" value="Location">
+<br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -349,8 +380,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="LocationCustomer">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -369,8 +403,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="LocationItems">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -405,8 +442,11 @@ if (isset($_POST['submit']))
     </tr>
     
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="Orders">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -425,8 +465,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="OrderItems">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -444,8 +487,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="OrdersLocations">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -466,8 +512,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="Supplier">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 
@@ -487,8 +536,11 @@ if (isset($_POST['submit']))
     </tr>
 
 </table>
+<div class="mydetails">
 <input type="hidden" name="table" value="SupplierItems">
+</br>
 <input type="submit" name="submit" value="Insert"/>
+</div>
 </form>
 </div>
 

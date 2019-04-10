@@ -22,6 +22,8 @@ if (isset($_POST['submit']))
             alert('$message');
         </script>";
     }
+
+    header("Location: deletedata.php");
 }
 ?>
 
@@ -41,7 +43,7 @@ if (isset($_POST['submit']))
         text-align: center;
     }
 
-    .textbox
+    .mytextbox
     {
         width: 25%;
         text-align: center; 
@@ -57,14 +59,14 @@ if (isset($_POST['submit']))
         margin-left: auto;
     }
     
-    .details
+    .mydetails
     {
         text-align: center;
     }
 </style>
 </head>
 <body>
-<div class="details">
+<div class="mydetails">
 <form action="delete.php" method = "post">
 <select id="selection" name="table" onchange="showData(this.value)">
     <option></option>
@@ -132,8 +134,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Employee">
     <input type="submit" name="submit" value="Delete"/>
@@ -147,8 +149,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Customer">
     <input type="submit" name="submit" value="Delete"/>
@@ -162,8 +164,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Item">
     <input type="submit" name="submit" value="Delete"/>
@@ -177,8 +179,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Location">
     <input type="submit" name="submit" value="Delete"/>
@@ -192,8 +194,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="LocationCustomer">
     <input type="submit" name="submit" value="Delete"/>
@@ -207,8 +209,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="LocationItems">
     <input type="submit" name="submit" value="Delete"/>
@@ -222,8 +224,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Orders">
     <input type="submit" name="submit" value="Delete"/>
@@ -237,8 +239,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="OrderItems">
     <input type="submit" name="submit" value="Delete"/>
@@ -252,8 +254,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="OrdersLocations">
     <input type="submit" name="submit" value="Delete"/>
@@ -267,8 +269,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="Supplier">
     <input type="submit" name="submit" value="Delete"/>
@@ -282,8 +284,8 @@ function showData(str)
 <form action="delete.php" method="post">
 <h3>Delete where</h3>
 <div>
-    <div class="details">
-    <input type="text" name ="whereClause" class="textbox">
+    <div class="mydetails">
+    <input type="text" name ="whereClause" class="mytextbox">
     </br>
     <input type="hidden" name="table" value="SupplierItems">
     <input type="submit" name="submit" value="Delete"/>

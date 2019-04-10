@@ -4,7 +4,7 @@
 
   define("USERNAME", "sornelas"); 	// change sspade to your username
   define("PASSWORD", "luw~6Sic");  	// modify password to 'your' password
-  define("DATABASE", "sornelas"); 	// change sspade to your username
+  define("DATABASE", "CS342"); 	// change sspade to your username
   define("HOST", "localhost");  	// do not modify host
 
    // connect to the mysql server 

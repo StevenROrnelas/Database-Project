@@ -34,7 +34,8 @@ if (isset($_POST['submit'])) {
     </head>
 
     <body>
-        <div id = 'wrapper'>
+        <div>
+<!--
         <div id = 'header'>
             <?php include_once 'header.php' ?>
         </div>
@@ -42,8 +43,8 @@ if (isset($_POST['submit'])) {
         <div id = 'left' >
             <?php include_once 'left.php' ?>
         </div>
-
-        <div id = 'main'>
+--!>
+        <div>
             <p> <form action = "database.php" method = "post">
                     <select name = "table">
                         <option value="Customer">Customer</option>
@@ -60,6 +61,7 @@ if (isset($_POST['submit'])) {
                     </select><input name = "submit" type = "submit" value = "Query"/>
                 </form>
             </p>
+ 
             <h3> Query Results </h3>
             <hr />
 
@@ -79,7 +81,7 @@ if (isset($_POST['submit'])) {
                 $result = mysqli_query($link, $sql);
 
                 $i = 0;
-                $file = fopen("insert$table.sql", "w");
+//                $file = fopen("insert$table.sql", "w");
                 while ($row = mysqli_fetch_row ($result)) {
                     echo '<tr>';
                     foreach ($row as $key => $value) {
@@ -104,14 +106,16 @@ if (isset($_POST['submit'])) {
                 }  ?>
             </table> <br>
 
-
-    
+   
         </div>
         </div>
     </body>
 </html> 
 
+
 <?php
+                    
+header("location: sidebar-right.php");
 }
 //No query yet
 else {?>

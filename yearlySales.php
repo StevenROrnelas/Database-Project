@@ -4,7 +4,7 @@
     <title> Chart generation </title>
 </head>
 <body>
-   <div id = "visualization" style ="width: 1000px; height: 800px;"></div>
+   <div id = "sales_visualization" style ="width: 1000px; height: 800px;"></div>
 <?php
     require_once ('connect.php');
 
@@ -59,7 +59,7 @@
             ?>
             ]);
 
-            new google.visualization.ColumnChart(document.getElementById('visualization')).
+            new google.visualization.ColumnChart(document.getElementById('sales_visualization')).
             draw(data, {title:"Total sales by year"});
             }
 

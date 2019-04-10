@@ -12,7 +12,7 @@ if (isset($_POST['submit']))
     switch ($table)
     {
         case "Employee":
-            $columns = "(ID, Name, Salary, Position, SSN, DoB, LocationID, SDate, EDate, ManagersID, ManagersSDate, ManagersEDate)";
+            $columns = "ID, Name, Salary, Position, SSN, DoB, LocationID, SDate, EDate, ManagersID, ManagersSDate, ManagersEDate";
             $employeeID = mysqli_real_escape_string ($link, $_POST['employeeID']);
             $employeeName = mysqli_real_escape_string ($link, $_POST['employeeName']);
             $employeeName = stripslashes($employeeName);
@@ -32,13 +32,13 @@ if (isset($_POST['submit']))
             $employeeManagerEDate = mysqli_real_escape_string ($link, $_POST['employeeManagerEDate']);
             $employeeManagerEDate = stripslashes($employeeManagerEDate);
 
-            $values = "($employeeID, '$employeeName', $employeeSalary, '$employeePosition', $employeeSSN, 
+            $values = "$employeeID, '$employeeName', $employeeSalary, '$employeePosition', $employeeSSN, 
                $employeeDoB, $employeeLocationID, '$employeeSDate', '$employeeEDate', 
-               $employeeManagersID, '$employeeManagerSDate', '$employeeManagerEDate')";
+               $employeeManagersID, '$employeeManagerSDate', '$employeeManagerEDate'";
             break;
 
         case "Customer":
-            $columns = "(ID, Name, Phone, Address, Email)";
+            $columns = "ID, Name, Phone, Address, Email";
             $customerID = mysqli_real_escape_string ($link, $_POST['customerID']);
             $customerName = mysqli_real_escape_string ($link, $_POST['customerName']);
             $customerName = stripslashes($customerName);
@@ -49,11 +49,11 @@ if (isset($_POST['submit']))
             $customerEmail = mysqli_real_escape_string($link, $_POST['customerEmail']);
             $customerEmail = stripslashes($customerEmail);
 
-            $values = "($customerId, '$customerName', '$customerPhone', '$customerAddress', '$customerEmail')";
+            $values = "$customerId, '$customerName', '$customerPhone', '$customerAddress', '$customerEmail'";
             break;
 
         case "Location":
-            $columns = "(ID, NumEmployees, Manager, Address, Phone, Email)";
+            $columns = "ID, NumEmployees, Manager, Address, Phone, Email";
             $locationID = mysqli_real_escape_string ($link, $_POST['locationID']);
             $locationEmployees = mysqli_real_escape_string ($link, $_POST['locationEmployees']);
             $locationManager = mysqli_real_escape_string ($link, $_POST['locationManager']);
@@ -64,11 +64,11 @@ if (isset($_POST['submit']))
             $locationEmail = mysqli_real_escape_string ($link, $_POST['locationEmail']);
             $locationEmail = stripslashes($locationEmail);
 
-            $values = "($locationID, $locationEmployees, $locationManager, '$locationAddress', '$locationPhone', '$locationEmail')";
+            $values = "$locationID, $locationEmployees, $locationManager, '$locationAddress', '$locationPhone', '$locationEmail'";
             break;
 
         case "LocationCustomer":
-            $columns = "(LocationID, CustomerID, TrackingNumber, DateShipped)";
+            $columns = "LocationID, CustomerID, TrackingNumber, DateShipped";
             $locationcustomerLocationID = mysqli_real_escape_string ($link, $_POST['locationcustomerLocationID']);
             $locationcustomerCustomerID = mysqli_real_escape_string ($link, $_POST['locationcustomerCustomerID']);
             $locationcustomerTrackingNo = mysqli_real_escape_string ($link, $_POST['locationcustomerTrackingNo']);
@@ -79,17 +79,17 @@ if (isset($_POST['submit']))
             break;
 
         case "LocationItems":
-            $columns = "(LocationID, ItemID, Amount)";
+            $columns = "LocationID, ItemID, Amount";
             $locationitemLocationID = mysqli_real_escape_string ($link, $_POST['locationitemLocationID']);
             $locationitemItemID     = mysqli_real_escape_string ($link, $_POST['locationitemItemID']);
             $locationitemAmount     = mysqli_real_escape_string ($link, $_POST['locationitemAmount']);
 
-            $values = "($locationitemLocationID, $locationitemItemID, $locationitemAmount)";
+            $values = "$locationitemLocationID, $locationitemItemID, $locationitemAmount";
             break;
 
 
         case "Orders":
-            $columns = "(ID, Total, Destination, ShippingMethod, CustomerID, DatePlaced, EmployeeID, DateFilled)";
+            $columns = "ID, Total, Destination, ShippingMethod, CustomerID, DatePlaced, EmployeeID, DateFilled";
             $orderID = mysqli_real_escape_string ($link, $_POST['orderID']);
             $orderTotal = mysqli_real_escape_string ($link, $_POST['orderTotal']);
             $orderDestination = mysqli_real_escape_string ($link, $_POST['orderDestination']);
@@ -102,31 +102,31 @@ if (isset($_POST['submit']))
             $orderEmployeeID = mysqli_real_escape_string ($link, $_POST['orderEmployeeID']);
             $orderDateFilled = mysqli_real_escape_string ($link, $_POST['orderDateFilled']);
             $orderDateFilled = stripslashes($orderDateFilled);
-            $values = "($orderID, $orderTotal, '$orderDestination', '$orderShippingMethod', $orderCustomerID,
-                       '$orderDatePlaced', $orderEmployeeID, '$orderDateFilled')";
+            $values = "$orderID, $orderTotal, '$orderDestination', '$orderShippingMethod', $orderCustomerID,
+                       '$orderDatePlaced', $orderEmployeeID, '$orderDateFilled'";
             break;
 
         case "OrderItems":
-            $columns = "(OrderID, ItemID, Amount)";
+            $columns = "OrderID, ItemID, Amount";
             $orderitemsOrderID = mysqli_real_escape_string ($link, $_POST['orderitemsOrderID']);
             $orderitemsItemID = mysqli_real_escape_string ($link, $_POST['orderitemsItemID']);
             $orderitemsAmount = mysqli_real_escape_string ($link, $_POST['orderitemsAmount']);
            
-            $values = "($orderitemsOrderID, $orderitemsItemID, $orderitemsAmount)";
+            $values = "$orderitemsOrderID, $orderitemsItemID, $orderitemsAmount";
             break;
 
         case "OrdersLocations":
-            $columns = "(OrderID, LocationID, Destination)";
+            $columns = "OrderID, LocationID, Destination";
             $orderslocationsOrderID = mysqli_real_escape_string ($link, $_POST['orderslocationsOrderID']);
             $orderslocationsLocationID = mysqli_real_escape_string ($link, $_POST['orderslocationsLocationID']);
             $orderslocationsDestination = mysqli_real_escape_string ($link, $_POST['orderslocationsDestination']);
             $orderslocationsDestination = stripslashes($orderslocationsDestinaton);
 
-            $values = "($orderslocationsOrderID, $orderslocationsLocationID, '$orderslocationsDestination')";
+            $values = "$orderslocationsOrderID, $orderslocationsLocationID, '$orderslocationsDestination'";
             break;
 
         case "Supplier":
-            $columns = "(Name, Phone, Address, Email)";
+            $columns = "Name, Phone, Address, Email";
             $supplierName = mysqli_real_escape_string ($link, $_POST['supplierName']);
             $supplierName = stripslashes($supplierName);
             $supplierPhone = mysqli_real_escape_string ($link, $_POST['supplierPhone']);
@@ -136,11 +136,11 @@ if (isset($_POST['submit']))
             $supplierEmail = mysqli_real_escape_string ($link, $_POST['supplierEmail']);
             $supplierEmail = stripslashes($supplierEmail);
 
-            $values = "('$supplierName', '$supplierPhone', '$supplierAddress', '$supplierEmail')";
+            $values = "'$supplierName', '$supplierPhone', '$supplierAddress', '$supplierEmail'";
             break;
 
         case "SupplierItems":
-            $columns = "(Supplier, ItemID, SDate, EDate)";
+            $columns = "Supplier, ItemID, SDate, EDate";
 
             $supplieritemsName = mysqli_real_escape_string ($link, $_POST['supplieritemsName']);
             $supplieritemsName = stripslashes($supplieritemsName);
@@ -150,7 +150,7 @@ if (isset($_POST['submit']))
             $supplieritemsEDate = mysqli_real_escape_string ($link, $_POST['supplieritemsEDate']);
             $supplieritemsEDate = stripslashes($supplieritemsSDate);
 
-            $values = "('$supplieritemsName', $supplieritemsItemID, '$supplieritemsSDate', '$supplieritemsEDate')";
+            $values = "'$supplieritemsName', $supplieritemsItemID, '$supplieritemsSDate', '$supplieritemsEDate'";
             break;
     }
 
@@ -198,6 +198,8 @@ if (isset($_POST['submit']))
             alert('$message');
         </script>";
     }
+
+    header("Location: updatedata.php");
 }
 ?>
 
@@ -210,9 +212,24 @@ if (isset($_POST['submit']))
     .inv{
         display: none;
 }
+    h3
+    {
+        text-align:center;
+    }
+    .mytextbox
+    {
+        width: 25%;
+        text-align: center;
+    }
+    .mydetails
+    {
+        text-align: center;
+    }
+
 </style>
 </head>
 <body>
+<div class ="mydetails">
 <form action="update.php" method = "post">
 <select id="selection" name="table" ><option></option>
     <option value="Employee">Update Employee table</option>
@@ -228,6 +245,7 @@ if (isset($_POST['submit']))
     <option value="SupplierItems">Update SupplierItems table </option>
 </select>
     </form>
+</div>
     <script>
 
     document
@@ -250,6 +268,15 @@ if (isset($_POST['submit']))
 <!-- ............Employee Table......... -->
 <div id = "Employee" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
 <table class="responstable">
     <th>ID</th>        
     <th>Name</th>      
@@ -283,19 +310,26 @@ if (isset($_POST['submit']))
         <td> <input type="text" name="employeeManagerEDate"</td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 </table>
 <input type="hidden" name="table" value="Employee">
-<input type="submit" name="submit" value="Update"/>
+<!--<input type="submit" name="submit" value="Update"/>
+-->
 </form>
 </div>
 
 <!-- ............Customer Table......... -->
 <div id = "Customer" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
   <table class="responstable">
     <th>CustomerID</th>        
     <th>Name</th>      
@@ -310,19 +344,24 @@ if (isset($_POST['submit']))
         <td><input type="text" name="customerEmail"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 </table>
 <input type="hidden" name="table" value="Customer">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 <!-- ...........Item Table......... -->
 <div id = "Item" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
   <table class="responstable">
     <th>Item ID</th>        
     <th>Item name</th>      
@@ -337,13 +376,8 @@ if (isset($_POST['submit']))
         <td><input type="text" name="itemCurrentPrice"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 </table>
 <input type="hidden" name="table" value="Item">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
@@ -351,6 +385,16 @@ if (isset($_POST['submit']))
 <!-- ............Location Tables.......... -->
 <div id = "Location" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>LocationID</th>        
     <th>Number of Employees</th>      
@@ -366,20 +410,25 @@ if (isset($_POST['submit']))
         <td><input type="text" name="locationEmail"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="Location">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 
 <div id = "LocationCustomer" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>LocationID</th>        
     <th>CustomerID</th>      
@@ -393,20 +442,25 @@ if (isset($_POST['submit']))
         <td><input type="text" name="locationcustomerDateShipped"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="LocationCustomer">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 
 <div id = "LocationItems" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>LocationID</th>        
     <th>ItemID</th>      
@@ -418,14 +472,9 @@ if (isset($_POST['submit']))
         <td><input type="text" name="locationitemAmount"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="LocationItems">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
@@ -434,6 +483,16 @@ if (isset($_POST['submit']))
 <!-- .........Order tables......... -->
 <div id = "Orders" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>OrderID</th>        
     <th>Total</th>      
@@ -459,20 +518,25 @@ if (isset($_POST['submit']))
         <td> <input type="text" name="orderDateFilled"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
     
 </table>
 <input type="hidden" name="table" value="Orders">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 
 <div id = "OrderItems" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>OrderID</th>        
     <th>ItemID</th>      
@@ -484,19 +548,24 @@ if (isset($_POST['submit']))
         <td><input type="text" name="orderitemsAmount"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="OrderItems">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 <div id = "OrdersLocations" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>OrderID</th>        
     <th>LocationID</th>      
@@ -508,20 +577,25 @@ if (isset($_POST['submit']))
         <td><input type="text" name="orderslocationsDestination"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="OrdersLocations">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 <!-- ..........Supplier tables ..........-->
 <div id = "Supplier" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>Supplier name</th>        
     <th>Supplier phone number</th>      
@@ -535,19 +609,24 @@ if (isset($_POST['submit']))
         <td><input type="text" name="supplierEmailAddress"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="Supplier">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
 <div id = "SupplierItems" class = "inv">
 <form action="update.php" method="post">
+<h3>Update where</h3>
+<div>
+    <div class="mydetails">
+    <input type="text" name="whereClause" class="mytextbox">
+    </br>
+    <input type="submit" name="submit" value="Update">
+    </div>
+</div>
+</br>
+
  <table class="responstable">
     <th>Supplier name</th>        
     <th>Item ID</th>      
@@ -561,14 +640,9 @@ if (isset($_POST['submit']))
         <td><input type="text" name="supplieritemsEDate"></td>
     </tr>
 
-    <th>Update where</th>
-    <tr>
-        <td> <input type="text" name="whereClause"> </td>
-    </tr>
 
 </table>
 <input type="hidden" name="table" value="SupplierItems">
-<input type="submit" name="submit" value="Update"/>
 </form>
 </div>
 
